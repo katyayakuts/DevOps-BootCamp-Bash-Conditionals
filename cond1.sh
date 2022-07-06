@@ -2,6 +2,17 @@
 
 IFS=',' read -r -a array <<< "$1"
 
-echo $[$(echo $@ | sed 's/,/+/g')]
+str=$@
+sum=
+IFS=,
+for i in $str
+do
+        if [ $(($i%2)) -eq 0 ]
+        then
+                sum=$[$sum+$i]
+        fi
+done
+echo $sum
+
 
 #Write your code here
