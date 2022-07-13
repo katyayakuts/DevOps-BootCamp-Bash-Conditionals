@@ -3,8 +3,9 @@
 IFS=',' read -r -a array <<< "$1"
 
 str=$@
-sum=
+sum=0
 IFS=,
+
 for i in $str
 do
         if [ $(($i%2)) -eq 0 ]
@@ -12,6 +13,7 @@ do
                 sum=$[$sum+$i]
         fi
 done
+
 echo $sum
 
 
